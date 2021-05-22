@@ -1,0 +1,22 @@
+<odoo>
+  <data>
+
+    <record id="terrascope_crm_lead_view_form" model="ir.ui.view">
+            <field name="name">terrascope.crm.lead.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='Misc']" position="after">
+                  <group string='Booking Info'>
+                    <field name="no_of_passengers"/>
+                    <field name="destination"/>
+                    <field name="pickup_time_date"/>
+                    <field name="food_drink_needed"/>
+                    <field name="product_id"/>
+                  </group>
+                </xpath>
+            </field>
+        </record>
+
+  </data>
+</odoo>
