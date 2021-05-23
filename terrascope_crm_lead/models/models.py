@@ -10,4 +10,4 @@ class Lead(models.Model):
     destination = fields.Char(string='Destination')
     pickup_time_date = fields.Datetime(string='Pickup Date & Time')
     food_drink_needed = fields.Boolean(string='Food & Drinks Needed?')
-    product_id = fields.Many2one(comodel_name='product.product', string='Product')
+    product_id = fields.Many2one(comodel_name='product.template', string='Product')
