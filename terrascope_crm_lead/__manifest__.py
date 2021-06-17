@@ -24,6 +24,7 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'data/website_crm_data.xml',
+        'views/website_boat_template.xml',
         'views/website_crm_template.xml',
     ],
 }

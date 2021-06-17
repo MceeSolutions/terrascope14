@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="terrascope_crm_contactus_form" name="Contact Form (Opportunity)" inherit_id="website_crm.contactus_form" customize_show="True">
-
-        <xpath expr="//span[@data-for='contactus_form']" position="attributes">
-            <attribute name="t-att-data-values">{
-                'no_of_passengers': request.params.get('no_of_passengers', ''),
-                'pickup_time_date': request.params.get('pickup_time_date', ''),
-                'food_drink_needed': request.params.get('food_drink_needed', ''),
-                'destination': request.params.get('destination', ''),
-                'product_id': request.params.get('product_id', ''),
-                'estimated_cost': request.params.get('estimated_cost', ''),
-                }
-            </attribute>
-        </xpath>
-
+    <template id="terrascope_concept_boat" name="Concept Boat" inherit_id="website_crm.contactus_form" customize_show="True">
         <xpath expr="//div[hasclass('s_website_form_rows', 'row', 's_col_no_bgcolor')] [1]" position="replace">
             <div class="s_website_form_rows row s_col_no_bgcolor">
 
@@ -89,7 +76,7 @@
                         <span class="s_website_form_label_content">Boat of Choice</span>
                         <span class="s_website_form_mark" style="color:Red;">*</span>
                     </label>
-                    <select id="product_id" class="form-control" name="product_id" required="1">
+                    <select id="product_id" class="form-control" name="product_id" required="1" readonly="1">
                         <t t-foreach="product_id" t-as="product_id">
                             <option t-attf-value="#{product_id.id}"><t t-esc="product_id.name"/></option>
                         </t>
@@ -100,11 +87,6 @@
                     <label class="s_website_form_label " style="width: 200px" for="estimated_cost">
                         <span class="s_website_form_label_content">Estimated Cost</span>
                     </label>
-                    <select id="estimated_cost" class="form-control" name="estimated_cost" required="1">
-                        <t t-foreach="product_id" t-as="product_id">
-                            <option t-attf-value="#{product_id.id}"><t t-esc="product_id.list_price"/></option>
-                        </t>
-                    </select>
                     <input type="text" class="form-control s_website_form_input" name="estimated_cost" t-att-value="default_values.get('estimated_cost', '')" readonly="1" id="estimated_cost"/>
                 </div>
 
