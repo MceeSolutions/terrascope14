@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     
-    <template id="terrascope_concept_boat" name="Concept Boat" inherit_id="website_crm.contactus_form" customize_show="True">
+    <template id="terrascope_concept_boat" name="Concept Boat" inherit_id="terrascope_crm_lead.terrascope_crm_contactus_form" customize_show="True">
         <xpath expr="//select[@name='product_id']" position="replace">
 
             <select id="product_id" class="form-control" name="product_id" required="1" readonly="1">
