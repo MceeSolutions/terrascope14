@@ -100,11 +100,11 @@
                     <label class="s_website_form_label " style="width: 200px" for="estimated_cost">
                         <span class="s_website_form_label_content">Estimated Cost</span>
                     </label>
-                    <select id="estimated_cost" class="form-control" name="estimated_cost" required="1">
+                    <!-- <select id="estimated_cost" class="form-control" name="estimated_cost" required="1">
                         <t t-foreach="product_id" t-as="product_id">
                             <option t-attf-value="#{product_id.id}"><t t-esc="product_id.list_price"/></option>
                         </t>
-                    </select>
+                    </select> -->
                     <input type="text" class="form-control s_website_form_input" name="estimated_cost" t-att-value="default_values.get('estimated_cost', '')" readonly="1" id="estimated_cost"/>
                 </div>
 

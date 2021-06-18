@@ -1,126 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
+    
     <template id="terrascope_concept_boat" name="Concept Boat" inherit_id="website_crm.contactus_form" customize_show="True">
-        <xpath expr="//div[hasclass('s_website_form_rows', 'row', 's_col_no_bgcolor')] [1]" position="replace">
-            <div class="s_website_form_rows row s_col_no_bgcolor">
+        <xpath expr="//select[@name='product_id']" position="replace">
 
-                <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-6" data-type="char" data-name="Field">
-                    <label class="s_website_form_label " style="width: 200px" for="contact_name">
-                        <span class="s_website_form_label_content">Name</span>
-                        <span class="s_website_form_mark" style="color:Red;">*</span>
-                    </label>
-                    <input type="text" class="form-control s_website_form_input" name="contact_name" required="1" placeholder="" id="first_name"/>
-                </div>
-
-                <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-6" data-type="char" data-name="Field">
-                    <label class="s_website_form_label " style="width: 200px" for="email_from">
-                        <span class="s_website_form_label_content">Email</span>
-                        <span class="s_website_form_mark" style="color:Red;">*</span>
-                    </label>
-                    <input type="email" class="form-control s_website_form_input" name="email_from" required="1" placeholder="" id="email_from"/>
-                </div>
-
-                <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-6" data-type="char" data-name="Field">
-                    <label class="s_website_form_label " style="width: 200px" for="phone">
-                        <span class="s_website_form_label_content">Phone</span>
-                        <span class="s_website_form_mark" style="color:Red;">*</span>
-                    </label>
-                    <input type="text" class="form-control s_website_form_input" name="phone" required="1" placeholder="" id="phone"/>
-                </div>
-
-                <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-6" data-type="char" data-name="Field">
-                    <label class="s_website_form_label " style="width: 200px" for="partner_name">
-                    <span class="s_website_form_label_content">Company Name</span>
-                    </label>
-                    <input type="text" class="form-control s_website_form_input" name="partner_name" placeholder="" id="partner_name"/>
-                </div>
-
-                <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-6" data-type="char" data-name="Field">
-                    <label class="s_website_form_label " style="width: 200px" for="no_of_passengers">
-                        <span class="s_website_form_label_content">Number of Passengers</span>
-                        <span class="s_website_form_mark" style="color:Red;">*</span>
-                    </label>
-                    <input type="number" class="form-control s_website_form_input" name="no_of_passengers" required="1" placeholder="" id="no_of_passengers"/>
-                </div>
-
-                <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-6" data-type="datetime" data-name="Field">
-                    <label class="s_website_form_label " style="width: 200px" for="pickup_time_date">
-                        <span class="s_website_form_label_content">Pickup Date &amp; Time</span>
-                        <span class="s_website_form_mark" style="color:Red;">*</span>
-                    </label>
-                    <div class="s_website_form_datetime input-group date" id="pickup_time_date_datetimepicker" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input s_website_form_input" data-target="#pickup_time_date_datetimepicker" name="pickup_time_date" placeholder="" id="pickup_time_date"/>
-                        <div class="input-group-append" data-target="#pickup_time_date_datetimepicker" data-toggle="datetimepicker">
-                            <div class="input-group-text">
-                                <i class="fa fa-calendar"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-6" data-type="char" data-name="Field">
-                    <label class="s_website_form_label " style="width: 200px" for="destination">
-                        <span class="s_website_form_label_content">Destination</span>
-                        <span class="s_website_form_mark" style="color:Red;">*</span>
-                    </label>
-                    <select id="destination" class="form-control" name="destination" required="1">
-                        <t t-foreach="destination_id" t-as="destination">
-                            <option t-attf-value="#{destination.name}"><t t-esc="destination.name"/></option>
-                        </t>
-                    </select>
-                </div>
-
-                <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-6" data-type="char" data-name="Field">
-                    <label class="s_website_form_label " style="width: 200px" for="product_id">
-                        <span class="s_website_form_label_content">Boat of Choice</span>
-                        <span class="s_website_form_mark" style="color:Red;">*</span>
-                    </label>
-                    <select id="product_id" class="form-control" name="product_id" required="1" readonly="1">
-                        <t t-foreach="product_id" t-as="product_id">
-                            <option t-attf-value="#{product_id.id}"><t t-esc="product_id.name"/></option>
-                        </t>
-                    </select>
-                </div>
-
-                <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-6" data-type="char" data-name="Field">
-                    <label class="s_website_form_label " style="width: 200px" for="estimated_cost">
-                        <span class="s_website_form_label_content">Estimated Cost</span>
-                    </label>
-                    <input type="text" class="form-control s_website_form_input" name="estimated_cost" t-att-value="default_values.get('estimated_cost', '')" readonly="1" id="estimated_cost"/>
-                </div>
-
-                <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-12" data-type="char" data-name="Field">
-                    <label class="s_website_form_label " style="width: 200px" for="opportunity5">
-                        <span class="s_website_form_label_content">Subject</span>
-                        <span class="s_website_form_mark" style="color:Red;">*</span>
-                    </label>
-                    <input type="text" class="form-control s_website_form_input" name="name" required="1" placeholder="" id="opportunity5"/>
-                </div>
-
-                <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-12" data-type="char" data-name="Field">
-                    <label class="s_website_form_label " style="width: 200px" for="opportunity6">
-                        <span class="s_website_form_label_content">Additional Information?</span>
-                    </label>
-                    <textarea id="opportunity6" class="form-control s_website_form_input" name="description" rows="3"/>
-                </div>
-
-                <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
-                    <div style="width: 200px;" class="s_website_form_label"/>
-                    <a href="#" role="button" class="btn btn-primary btn-lg s_website_form_send">Submit</a>
-                    <span id="s_website_form_result"></span>
-                </div>
-
-                <!-- <div class="form-group col-12 s_website_form_submit text-left" data-name="Submit Button">
-                    <div style="width: 200px;" class="s_website_form_label"/>
-                    <a href="#" role="button" class="btn btn-primary btn-lg s_website_form_send">Contact Us</a>
-                    <span id="s_website_form_result"></span>
-                </div> -->
-            
-            </div>
+            <select id="product_id" class="form-control" name="product_id" required="1" readonly="1">
+                <t t-foreach="product_id" t-as="product_id">
+                    <option t-attf-value="#{product_id.id}"><t t-esc="product_id.name"/></option>
+                </t>
+            </select>
 
         </xpath>
-
     </template>
+
+    <template id="terrascope_nautica_rib" name="Nautica Rib" inherit_id="terrascope_crm_lead.terrascope_crm_contactus_form" customize_show="True">
+        <xpath expr="//select[@name='product_id']" position="replace">
+
+            <select id="product_id" class="form-control" name="product_id" required="1" readonly="1">
+                <t t-foreach="product_id" t-as="product_id">
+                    <option t-attf-value="#{product_id.id}"><t t-esc="product_id.name"/></option>
+                </t>
+            </select>
+
+        </xpath>
+    </template>
+
+    <template id="searay_sunsport_290_SS" name="Searay Sunsport 290 SS" inherit_id="terrascope_crm_lead.terrascope_crm_contactus_form" customize_show="True">
+        <xpath expr="//select[@name='product_id']" position="replace">
+
+            <select id="product_id" class="form-control" name="product_id" required="1" readonly="1">
+                <t t-foreach="product_id" t-as="product_id">
+                    <option t-attf-value="#{product_id.id}"><t t-esc="product_id.name"/></option>
+                </t>
+            </select>
+
+        </xpath>
+    </template>
+
+    <template id="aqua-terra_boat" name="Aqua-Terra Boat" inherit_id="terrascope_crm_lead.terrascope_crm_contactus_form" customize_show="True">
+        <xpath expr="//select[@name='product_id']" position="replace">
+
+            <select id="product_id" class="form-control" name="product_id" required="1" readonly="1">
+                <t t-foreach="product_id" t-as="product_id">
+                    <option t-attf-value="#{product_id.id}"><t t-esc="product_id.name"/></option>
+                </t>
+            </select>
+
+        </xpath>
+    </template>
+
+    <template id="searay_175_port_boat" name="Searay 175 Sport Boat" inherit_id="terrascope_crm_lead.terrascope_crm_contactus_form" customize_show="True">
+        <xpath expr="//select[@name='product_id']" position="replace">
+
+            <select id="product_id" class="form-control" name="product_id" required="1" readonly="1">
+                <t t-foreach="product_id" t-as="product_id">
+                    <option t-attf-value="#{product_id.id}"><t t-esc="product_id.name"/></option>
+                </t>
+            </select>
+
+        </xpath>
+    </template>
+
+    <template id="chris_craft_boat" name="Chris Craft Boat" inherit_id="terrascope_crm_lead.terrascope_crm_contactus_form" customize_show="True">
+        <xpath expr="//select[@name='product_id']" position="replace">
+
+            <select id="product_id" class="form-control" name="product_id" required="1" readonly="1">
+                <t t-foreach="product_id" t-as="product_id">
+                    <option t-attf-value="#{product_id.id}"><t t-esc="product_id.name"/></option>
+                </t>
+            </select>
+
+        </xpath>
+    </template>
+
+    <record id="concept_boat_page" model="website.page">
+        <field name="name">Concept Boats</field>
+        <field name="website_published">True</field>
+        <field name="url">/concept-boat</field>
+        <field name="view_id" ref="terrascope_crm_lead.terrascope_concept_boat"/>
+    </record>
 
 </odoo>
