@@ -30,7 +30,7 @@ class ConceptBoat(http.Controller):
             # estimated_cost = cost.list_price
             default_values['estimated_cost'] = cost.list_price
             # default_values['estimated_cost'] = cost.lst_price
-        return http.request.render("terrascope_crm_lead.terrascope_concept_boat", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
+        return http.request.render("terrascope_crm_lead.terrascope_concept_boats", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
 
 class NauticaRib(http.Controller):
     @http.route('/nautica-rib', type='http', auth="public", website=True)
@@ -44,7 +44,7 @@ class NauticaRib(http.Controller):
         
         for cost in product_id:
             default_values['estimated_cost'] = cost.list_price
-        return http.request.render("terrascope_crm_lead.terrascope_nautica_rib", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
+        return http.request.render("terrascope_crm_lead.terrascope_nautica_ribs", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
 
 class Searay_Sunsport_290_SS(http.Controller):
     @http.route('/searay-sunsport-290-SS', type='http', auth="public", website=True)
@@ -58,7 +58,7 @@ class Searay_Sunsport_290_SS(http.Controller):
         
         for cost in product_id:
             default_values['estimated_cost'] = cost.list_price
-        return http.request.render("terrascope_crm_lead.searay_sunsport_290_SS", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
+        return http.request.render("terrascope_crm_lead.searay_sunsport_290_SSs", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
 
 class AquaTerraBoat(http.Controller):
     @http.route('/aqua-terra-boat', type='http', auth="public", website=True)
@@ -72,7 +72,7 @@ class AquaTerraBoat(http.Controller):
         
         for cost in product_id:
             default_values['estimated_cost'] = cost.list_price
-        return http.request.render("terrascope_crm_lead.aqua-terra_boat", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
+        return http.request.render("terrascope_crm_lead.aqua-terra_boats", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
 
 class Searay175SportBoat(http.Controller):
     @http.route('/searay-175-sport-boat', type='http', auth="public", website=True)
@@ -86,7 +86,7 @@ class Searay175SportBoat(http.Controller):
         
         for cost in product_id:
             default_values['estimated_cost'] = cost.list_price
-        return http.request.render("terrascope_crm_lead.searay_175_port_boat", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
+        return http.request.render("terrascope_crm_lead.searay_175_port_boats", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
 
 class ChrisCraftBoat(http.Controller):
     @http.route('/chris-craft-boat', type='http', auth="public", website=True)
@@ -100,4 +100,4 @@ class ChrisCraftBoat(http.Controller):
         
         for cost in product_id:
             default_values['estimated_cost'] = cost.list_price
-        return http.request.render("terrascope_crm_lead.chris_craft_boat", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
+        return http.request.render("terrascope_crm_lead.chris_craft_boats", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
