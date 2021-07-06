@@ -77,7 +77,7 @@
                         <span class="s_website_form_label_content">Destination</span>
                         <span class="s_website_form_mark" style="color:Red;">*</span>
                     </label>
-                    <select id="destination" class="form-control" name="destination" required="1">
+                    <select id="destination" class="form-control" name="destination" required="1" onchange="myFunction()">
                         <t t-foreach="destination_id" t-as="destination">
                             <option t-attf-value="#{destination.name}"><t t-esc="destination.name"/></option>
                         </t>
@@ -105,8 +105,10 @@
                             <option t-attf-value="#{product_id.id}"><t t-esc="product_id.list_price"/></option>
                         </t>
                     </select> -->
-                    <input type="text" class="form-control s_website_form_input" name="estimated_cost" t-att-value="default_values.get('estimated_cost', '')" readonly="1" id="estimated_cost"/>
+                    <!-- <input type="text" class="form-control s_website_form_input" name="estimated_cost" t-att-value="default_values.get('estimated_cost', '')" readonly="1" id="estimated_cost"/> -->
+                    <p id="estimated_cost"></p>
                 </div>
+                <p id="demo"></p>
 
                 <div class="form-group s_website_form_field col-12 s_website_form_required col-lg-12" data-type="char" data-name="Field">
                     <label class="s_website_form_label " style="width: 200px" for="opportunity5">
