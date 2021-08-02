@@ -1,5 +1,6 @@
  # -*- coding: utf-8 -*-
 
+import json
 from odoo import http
 
 class WebsiteCrmLead(http.Controller):
@@ -14,6 +15,19 @@ class WebsiteCrmLead(http.Controller):
         for cost in product_id:
             default_values['estimated_cost'] = cost.list_price
         return http.request.render("terrascope_crm_lead.terrascope_crm_contactus_form", {'default_values': default_values, 'product_id':product_id , 'destination_id':destination_id})
+
+    @http.route('/fetch/estimatedprice', type='json', auth="public", website=True)
+    def get_price(self, **kw):
+        # print('kwagrs >>>>>>>>>', kw)
+        product_id = kw.get('product_id')
+        destination_id = kw.get('dest_id')
+        product = http.request.env['product.product'].sudo().search([('product_tmpl_id', '=', product_id), ('product_template_attribute_value_ids.name', '=', destination_id)])
+        # print('product >>>>>>>>>', product)
+        currency_symbol = product.currency_id.symbol
+        price = product.lst_price
+        currency = "{:,.2f}".format(price)
+        return currency_symbol + currency
+        #pass
 
 class ConceptBoat(http.Controller):
     @http.route('/concept-boat', type='http', auth="public", website=True)

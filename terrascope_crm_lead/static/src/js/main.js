@@ -10,22 +10,32 @@
 // });
 function myFunction() {
     odoo.define( function (require) {
-    var rpc = require('web.rpc');
-    var model = 'product.product';
+    // var rpc = require('web.rpc');
+    // var model = 'product.product';
+    var ajax = require('web.ajax');
+
     // Use an empty array to search for all the records
     var dest_id = document.getElementById("destination").value;
     var product_id = parseInt(document.getElementById("product_id").value);
-    var domain = [['product_tmpl_id', '=', product_id],['product_template_attribute_value_ids.name', '=', dest_id]];
+    // var domain = [['product_tmpl_id', '=', product_id],['product_template_attribute_value_ids.name', '=', dest_id]];
     // Use an empty array to read all the fields of the records
-    var fields = ['id','name','lst_price','currency_id'];
-    rpc.query({
-        model: model,
-        method: 'search_read',
-        args: [domain, fields],
-    }).then(function (data) {
-        boat = data[0];
-        currency = boat.currency_id;
-        document.getElementById("estimated_cost").innerHTML = currency[1] + boat.lst_price;
-    });
+    // var fields = ['id','name','lst_price','currency_id'];
+
+    ajax.jsonRpc('/fetch/estimatedprice', 'call', {'dest_id': dest_id, 'product_id': product_id})
+        .then(function (data) {
+            console.log(data)
+            // currency = boat.currency_id;
+            document.getElementById("estimated_cost").innerHTML = data;
+        });
+
+    // rpc.query({
+    //     model: model,
+    //     method: 'search_read',
+    //     args: [domain, fields],
+    // }).then(function (data) {
+    //     boat = data[0];
+    //     currency = boat.currency_id;
+    //     document.getElementById("estimated_cost").innerHTML = currency[1] + boat.lst_price;
+    // });
     });
 }
