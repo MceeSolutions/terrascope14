@@ -23,10 +23,14 @@ class WebsiteCrmLead(http.Controller):
         destination_id = kw.get('dest_id')
         product = http.request.env['product.product'].sudo().search([('product_tmpl_id', '=', product_id), ('product_template_attribute_value_ids.name', '=', destination_id)])
         # print('product >>>>>>>>>', product)
-        currency_symbol = product.currency_id.symbol
-        price = product.lst_price
-        currency = "{:,.2f}".format(price)
-        return currency_symbol + currency
+        if product:
+            currency_symbol = product.currency_id.symbol
+            price = product.lst_price
+            currency = "{:,.2f}".format(price)
+            return currency_symbol + currency
+        else:
+            msg = '<p style="color:Red;"> Boat currently not available for selected destination <p/>'
+            return msg
         #pass
 
 class ConceptBoat(http.Controller):
